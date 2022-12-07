@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="alert" class="alert-box">
+        <p id="alert-list">
+            아이디입력하셈
+        </p>
+        <button onclick="alertClose()">닫기</button>
+    </div>
+    <button onclick="alertOpen('아이디를 입력하세요');">버튼</button>
+    <button onclick="alertOpen('비밀번호를 입력하세요');">버튼</button>
+    
+    
+    
+    <script>
+
+        //복잡하면 한글부터 짜고 코드로 옮겨 보기
+        //1.p태그 내용을 아이디 입력으로 바꿈
+        //document.getElementById('alert').innerHTML='아이디입력하세요';
+        //2.알림창 띄움
+        //document.getElementById('alert').style.display= 'block';
+
+
+        function alertOpen(구멍){
+            document.getElementById('alert').style.display= 'block';
+            document.getElementById('alert-list').innerHTML = 구멍;
+        }
+
+        function alertClose(){
+            document.getElementById('alert').style.display = 'none';
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>

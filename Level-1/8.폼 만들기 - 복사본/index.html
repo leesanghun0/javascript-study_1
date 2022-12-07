@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello,world!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="black-bg">
+      <div class="white-bg">
+          <h4>로그인하세요</h4>
+
+          <form action="success.html"> 
+            <div class="my-3">
+              <input type="text" id="input-id" class="form-control">
+            </div>
+            <div class="my-3">
+              <input type="fassword" id="input-password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">전송</button>
+            <button type="button" class="btn btn-danger" id="close">닫기</button>
+          </form>
+          
+      </div>
+    </div>
+
+    <script>
+      // 1.전송버튼 누르면
+      // 저기 input에 입력한 값이 공백이면 알림창 띄워주세요
+      let btnPrimary = document.querySelector('.btn-primary');
+      let inputID = document.getElementById('input-id');
+      let inputPwd = document.getElementById('input-password');
+      //console.log(userID);
+      //console.log(userPwd);
+      //console.log(btnPrimary);
+
+      btnPrimary.addEventListener('click',send);
+
+     function send(){
+      let userIdValue = inputID.value;
+      let uertPwdValue = inputPwd.value;
+      
+      if(userIdValue == '' || userIdValue==null || uertPwdValue==''|| uertPwdValue==null){
+        alert("정보를 입력하세요");
+        event.preventDefault();
+      }else if(uertPwdValue.length < 6){
+        alert("비밀번호가 6글자 미만입니다.");
+        event.preventDefault();
+      }
+    }
+
+
+
+
+    </script>
+
+    
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">Navbar</span>
+          <span class="badge bg-dark">🌙Dark</span>
+          <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+        </div>
+      </nav> 
+    
+      <script>
+        //1.badge클릭횟수가 홀수면 내부 글자를 Light로 변경 
+        //2.badge클릭횟수가 짝수면 내부 글자를 Dark로변경
+
+        let badge = document.querySelector('.badge');
+        let count = 0;//클릭횟수를 저장할 변수
+
+        badge.addEventListener('click',darkMode);
+
+        function darkMode(){
+          count ++;
+
+          if(count%2 ==0){
+            badge.style.background = "black";
+            badge.innerHTML = '🌙Dark'
+          }else if(count%2 == 1){
+            badge.style.background = "white";
+            badge.innerHTML = '☀lingt';
+          }
+        }
+
+      </script>
+
+      <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+      </ul>
+
+
+
+      <div class="main-bg">
+        <h4>Shirts on Sale</h4>
+        <button id="login" class="btn btn-danger">로그인</button>
+      </div>
+
+      <script>
+
+        document.getElementById('login').addEventListener('click', function(){
+            document.querySelector('.black-bg').classList.add('show-modal');
+        });
+
+        document.getElementById('close').addEventListener('click',function(){
+            document.querySelector('.black-bg').classList.remove('show-modal');
+        });
+
+        document.getElementsByClassName('navbar-toggler')
+        [0].addEventListener('click',function(){
+            document.getElementsByClassName('list-group')[0].classList.toggle('show');
+        })
+
+        //document.querySelector('.hello').innerHTML = '바보';
+        // $('.hello').html('바보');
+        $('#test-btn').on('click',function(){
+          $('.hello').slideToggle()
+        })
+
+
+
+
+
+
+      </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
