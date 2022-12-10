@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
   crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="">
 
     <div class="black-bg">
       <div class="white-bg">
@@ -77,6 +77,7 @@
         //2.badge클릭횟수가 짝수면 내부 글자를 Dark로변경
 
         let badge = document.querySelector('.badge');
+        let body = document.querySelector('body')
         let count = 0;//클릭횟수를 저장할 변수
 
         badge.addEventListener('click',darkMode);
@@ -85,11 +86,11 @@
           count ++;
 
           if(count%2 ==0){
-            badge.style.background = "black";
-            badge.innerHTML = '🌙Dark'
+            badge.innerHTML = '🌙Dark';
+            body.classList.add('dark');
           }else if(count%2 == 1){
-            badge.style.background = "white";
             badge.innerHTML = '☀lingt';
+            body.classList.remove('dark');
           }
         }
 
