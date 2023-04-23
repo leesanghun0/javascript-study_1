@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.6.3.js"
+    integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div style="overflow: hidden">
+    <div class="slide-container">
+      <div class="slide-box">
+        <img src="car1.png" draggable="false">
+      </div>
+      <div class="slide-box">
+        <img src="car2.png">
+      </div>
+      <div class="slide-box">
+        <img src="car3.png">
+      </div>
+    </div>
+</div> 
+
+<script>
+
+    // mousedown //마우스를 클릭했을때 
+    // mouseup //마우스를 뗐을때 
+    // mousemove//마우스를 이동했을때 
+    var 시작좌표 = 0;
+    var 눌렸냐 = false;
+
+    $('.slide-box').eq(0).on('mousedown',function(e){
+        //console.log(e.clientX);
+        //기능1:내가 드래그한 거리만큼 박스도 왼쪽으로 움직여야함.
+       시작좌표 = e.clientX;
+       눌렸냐 = true;
+    });
+
+    $('.slide-box').eq(0).on('mousemove',function(e){
+       //console.log(e.clientX - 시작좌표) 
+       if(눌렸냐 == true){
+       $('.slide-container').css('transform',`translate(${e.clientX - 시작좌표}px)`);
+       }
+    });
+
+    $('.slide-box').eq(0).on('mouseup',function(e){
+       눌렸냐 = false;
+
+    //    if(이동거리 100이상){
+    //     2번자신보여주셈
+    //    }else{
+    //     1번사진 보여주셈
+    //    }
+
+       if(e.clientX - 시작좌표 < -100){
+        $('.slide-container').css('transform', 'translateX(-100vw)');
+       }else{
+        $('.slide-container').css('transform', 'translateX(0vw)');
+       }
+   
+    });
+
+    //기능2 손을 놓을때 100px이상 이동했으면 둘째사진이 보임.
+    //아니면 첫째사진이보임
+
+</script>
+</body>
+</html>
